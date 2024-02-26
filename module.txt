@@ -1,0 +1,57 @@
+// librery management in go lang
+// based on three concepts
+// repositories , modules &  packages
+
+// repositories : version control like git, gitlab
+// module & packages : root of a go librery or application stored
+// in a repository .
+// go code is grouped into packages, and packages are grouped into
+// modules
+
+// modules consist of one or more packages
+
+// module is globally unique identifier
+// ex : github.com/kode/learn , example.com/learn
+
+// to create go module
+//  go mod init example.com/learn
+// go.mod file will create
+// here dependency will present
+
+
+// if we add third party module 
+// we have add those module by using
+// go mod tidy
+
+create and access package
+========================
+
+to import a local module that is not pushed into a version control
+system we use "replace director" 
+
+                         "not with package"
+cmd:  go mod edit -replace "module name"=..module path
+then write command `go mod tidy`
+
+===== compiling and install =======
+first get the go path
+cmd: go env GOPATH
+export PATH=%PATH:go-env-path/bin
+
+go install // not sure I have to build first or not
+
+now you can write the module dir name (will create based on module name) and hit enter
+application will run or you can see those in the go path
+
+
+=== developing and publishing module===
+workflow
+    1: design and code the packages that the module will include
+    2: commit code to your repo that ensure it's available to others via go tools
+    3: publisht the moduel to make it discoverable by developers
+    4: over time, revise the module with versions that use version nubmering convntions that signals
+        each versions stability and backward compatibility
+
+
+
+package main
